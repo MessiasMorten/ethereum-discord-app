@@ -1,0 +1,21 @@
+{
+  "name": "solana-bot",
+  "version": "1.0.0",
+  "description": "A Solana discord bot for live pricing",
+  "main": "solanabot.js",
+  "scripts": {
+    "start": "node solanabot.js"
+  },
+  "keywords": [
+    "discord",
+    "crypto",
+    "solana"
+  ],
+  "author": "Morten Jensen",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0"
+  }
+}
