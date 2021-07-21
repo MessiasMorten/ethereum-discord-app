@@ -23,7 +23,7 @@ bot.on('ready', () => {
     bot.users.fetch('867495322883194951').then((user) => {
         botobj = user;
     
-        const guild = bot.guilds.cache.get('859080868626300968');
+        const guild = bot.guilds.cache.find(r => r.name === "Crypto");
         guildmember = guild.member(botobj);
 
     }).catch(console.error);
