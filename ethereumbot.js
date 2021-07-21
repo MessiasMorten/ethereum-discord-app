@@ -43,7 +43,7 @@ bot.on('ready', () => {
             change = jsondata['priceChangePercent'];
 
             //Trim price and change strings
-            newcurrentprice = currentprice.substring(0,4);
+            newcurrentprice = currentprice.substring(0,8);
             newchangestr = change.substring(0,4);
             newchangeint = parseInt(newchangestr);
 
@@ -55,7 +55,7 @@ bot.on('ready', () => {
             //Positive
             if (newchangeint >= 0) {
 
-                botname = "ETH " + newcurrentprice + " +" + newchangestr + "%";
+                botname = newcurrentprice + " +" + newchangestr + "%";
                 guildmember.setNickname(botname);
                 try {
                     guildmember.roles.add(bull);
@@ -68,7 +68,7 @@ bot.on('ready', () => {
             //Negative    
             } else {
 
-                botname = "ETH " + newcurrentprice + " " + newchangestr + "%";
+                botname = newcurrentprice + " " + newchangestr + "%";
                 guildmember.setNickname(botname);
 
                 try {
