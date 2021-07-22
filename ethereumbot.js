@@ -15,15 +15,30 @@ let botobj;
 let guildmember;
 
 //Fetch user and member object of bot
-
 bot.on('ready', () => {
-
     bot.user.setActivity('ETH @ Binance', ({type: "WATCHING"}));
+});
 
-    bot.users.fetch('867495322883194951').then((user) => {
+bot.on('message', async (msg) => {
+   const content = msg.content;
+   if (content === "!start ETH") {
+
+    var server = msg.guild.id;
+    startMonitoring(server);
+
+    msg.channel.send("Started working..");
+
+   }
+
+});
+
+
+function startMonitoring(server_id) {
+
+        bot.users.fetch('867495322883194951').then((user) => {
         botobj = user;
     
-        const guild = bot.guilds.cache.find(r => r.name === "Crypto");
+        const guild = bot.guilds.cache.get(server_id);
         guildmember = guild.member(botobj);
 
     }).catch(console.error);
@@ -93,8 +108,6 @@ bot.on('ready', () => {
 
 
 
-    }, 1000);
+    }, 1000); 
 
-    
-
-});
+}
